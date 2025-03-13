@@ -2,7 +2,7 @@
 
 This project is **Eat Pizza Mania**, a React-based web application designed for pizza lovers. The app allows users to explore different pizza options, customize their orders, and place orders seamlessly.
 
-## Technology Stack
+## Technology Stacks
 - **React 17**
 - **Node.js 16**
 - **Create React App** for bootstrapping the project
