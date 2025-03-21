@@ -7,7 +7,7 @@ This project is **Eat Pizza Mania**, a React-based web application designed for 
 - **Node.js 16**
 - **Create React App** for bootstrapping the project
 
-## Available Scripts
+## Available Script
 
 In the project directory, you can run:
 
