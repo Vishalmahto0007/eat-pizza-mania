@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Pizza Margeritta",
+    "description": "Pizza Margeritta with extra cheese and with extra toppings, lets taste it.",
+    "basePrice": 99.0,
+    "size": "Small"
+  },
+  {
+    "id": 2,
+    "name": "Pizza Crust",
+    "description": "Pizza Crust with extra cheese and with extra toppings, lets taste it.",
+    "basePrice": 149.0,
+    "size": "Small"
+  },
+  {
+    "id": 3,
+    "name": "Pizza Biscuit Cake",
+    "description": "Pizza Biscuit Bake  with extra cheese and with extra toppings, lets taste it.",
+    "basePrice": 199.0,
+    "size": "Small"
+  },
+  {
+    "id": 4,
+    "name": "Crazy Sweet Pizza",
+    "description": "Crazy Sweet Pizza with extra cheese and with extra toppings, lets taste it.",
+    "basePrice": 199.0,
+    "size": "Small"
+  },
+  {
+    "id": 5,
+    "name": "Crazy Crust Pizza",
+    "description": "Crazy Crust Pizza with extra cheese and with extra toppings, lets taste it.",
+    "basePrice": 249.0,
+    "size": "Small"
+  },
+  {
+    "id": 6,
+    "name": "Low Carb Pizza",
+    "description": "Low Carb Pizza with extra cheese and with extra toppings, lets taste it.",
+    "basePrice": 249.0,
+    "size": "Small"
+  }
+]

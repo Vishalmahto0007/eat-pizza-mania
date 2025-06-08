@@ -1,0 +1,200 @@
+.pageTitle {
+  text-align: center;
+  padding: 90px 30px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pageTitle h1 {
+  font-size: 36px;
+  color: rgb(255, 69, 79);
+
+  font-weight: 600;
+  border-bottom: 2px solid rgb(255, 69, 79);
+
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.container {
+  display: flex;
+  height: calc(100vh - 160px);
+  padding: 0 4vw;
+  gap: 0px;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imgContainer {
+  width: 80%;
+  height: 80%;
+  position: relative;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.desc {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.price {
+  color: rgb(255, 69, 79);
+  font-size: 24px;
+  font-weight: 600;
+  border-bottom: 1px solid rgb(255, 69, 79);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.choose {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 15px 0 10px;
+}
+
+/* .sizes {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+} */
+.sizes {
+  display: flex;
+  gap: 20px; /* Add this line to increase spacing */
+  margin-bottom: 20px;
+}
+
+.size {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.size:nth-child(2) {
+  width: 50px;
+  height: 50px;
+}
+
+.size:last-child {
+  width: 60px;
+  height: 60px;
+}
+
+.size:hover,
+.size.selected {
+  border: 2px solid rgb(255, 69, 79);
+  border-radius: 8px;
+}
+
+.number {
+  position: absolute;
+  top: -5px;
+  right: -20px;
+  background-color: teal;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 6px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.add {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.button {
+  height: 40px;
+  padding: 0 20px;
+  background-color: rgb(255, 69, 79);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: rgb(255, 69, 79);
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .imgContainer {
+    width: 70vw;
+    height: 70vw;
+  }
+
+  .sizes {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .ingredients {
+    flex-direction: column;
+  }
+
+  .option {
+    margin-bottom: 10px;
+  }
+
+  .button {
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+.notFound {
+  padding: 50px;
+  text-align: center;
+  font-size: 22px;
+  color: rgb(255, 69, 79);
+}

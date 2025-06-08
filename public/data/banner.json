@@ -1,0 +1,17 @@
+[
+  {
+    "heading": "Welcome to Pizza Mania",
+    "text": "Pizza Delivery near you. Delicious Pizzas. Starts @99",
+    "img": "/images/bg.jpg"
+  },
+  {
+    "heading": "Hot & Fresh",
+    "text": "Freshly baked pizzas delivered in 30 minutes!",
+    "img": "/images/bg2.jpg"
+  },
+  {
+    "heading": "Custom Your Pizza",
+    "text": "Choose your own toppings. Get your dream pizza!",
+    "img": "/images/bg4.jpg"
+  }
+]
