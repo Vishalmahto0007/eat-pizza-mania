@@ -16,10 +16,10 @@ const orderSlice = createSlice({
   reducers: {
     placeOrder: (
       state,
-      action: PayloadAction<{ items: CartItem[]; total: number }>
+      action: PayloadAction<{ id: string; items: CartItem[]; total: number }>
     ) => {
       state.history.push({
-        id: Date.now().toString(),
+        id: action.payload.id,
         date: new Date().toLocaleString(),
         items: action.payload.items,
         total: action.payload.total,

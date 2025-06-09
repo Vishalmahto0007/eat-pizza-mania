@@ -9,6 +9,7 @@ import {
   updateQuantity,
   clearCart,
 } from "@/features/cart/cartSlice";
+import { placeOrder } from "@/features/orders/orderSlice";
 
 interface CheckoutModalProps {
   onClose: () => void;
@@ -29,7 +30,10 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ onClose }) => {
   const [touched, setTouched] = useState<{ [key in FormField]?: boolean }>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [orderId, setOrderId] = useState("");
+
   const dispatch = useAppDispatch();
+  const cartItems = useAppSelector((state) => state.cart.items);
 
   // Validate the entire form or individual fields
   const validateField = (field: FormField, value: string): string => {
@@ -109,14 +113,35 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ onClose }) => {
     //     total: 114.48,
     //   },
     // };
+    const uniqueOrderId = String(Math.floor(Math.random() * 90000 + 10000));
+    const newOrderId = `OID${uniqueOrderId}PM`;
+    setOrderId(newOrderId); // Optional, only if needed elsewhere
+
+    const subtotal = cartItems.reduce(
+      (sum, item) => sum + item.finalPrice * item.quantity,
+      0
+    );
 
     const templateParams = {
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
       address: formData.address,
-      message: `Order placed for ₹${Math.floor(Math.random() * 900 + 100)}`,
+      order_id: newOrderId,
+      orders: cartItems.map((item) => ({
+        name: item.name,
+        units: item.quantity,
+        price: item.finalPrice,
+        size: item.size,
+        extras: item.extras.length ? item.extras.join(", ") : "None",
+      })),
+      cost: {
+        shipping: 0,
+        tax: 0,
+        total: subtotal,
+      },
     };
+
     console.log("templateParams :", templateParams);
 
     try {
@@ -125,6 +150,20 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ onClose }) => {
         process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
         templateParams,
         process.env.NEXT_PUBLIC_PUBLIC_KEY as string
+      );
+
+      const order = {
+        id: newOrderId,
+        date: new Date().toLocaleString(),
+        items: cartItems,
+        total: subtotal,
+      };
+      localStorage.setItem(
+        "pizza-orders",
+        JSON.stringify([...getOrdersFromStorage(), order])
+      );
+      dispatch(
+        placeOrder({ id: newOrderId, items: cartItems, total: subtotal })
       );
       setSubmitted(true);
       // onConfirm(formData);
@@ -135,6 +174,16 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ onClose }) => {
       setLoading(false);
     }
   };
+
+  // Add this helper to get existing orders from localStorage
+  function getOrdersFromStorage() {
+    if (typeof window === "undefined") return [];
+    try {
+      return JSON.parse(localStorage.getItem("pizza-orders") || "[]");
+    } catch (e) {
+      return [];
+    }
+  }
 
   // Check if form is valid (no errors)
   const isValid = Object.keys(validateAll()).length === 0;
@@ -158,7 +207,9 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ onClose }) => {
             <p>
               Phone: <strong>{formData.phone}</strong>
             </p>
-            <p>Order ID: #{Math.floor(Math.random() * 90000 + 10000)}</p>
+            <p>
+              Order ID: <strong>{orderId}</strong>
+            </p>
           </div>
         ) : (
           <>

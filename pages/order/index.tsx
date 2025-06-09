@@ -1,34 +1,42 @@
-import { useAppSelector } from "@/store/hook";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import styles from "./Order.module.css";
 
-// Dummy data fallback for development/testing
-const dummyOrders = [
-  {
-    id: "ORD123",
-    date: "2025-06-07",
-    total: 749.5,
-    items: [
-      { name: "Margherita", quantity: 1, price: 199.5 },
-      { name: "Farmhouse", quantity: 2, price: 275 },
-    ],
-  },
-  {
-    id: "ORD124",
-    date: "2025-06-06",
-    total: 399,
-    items: [
-      { name: "Peppy Paneer", quantity: 1, price: 199 },
-      { name: "Garlic Bread", quantity: 1, price: 200 },
-    ],
-  },
-];
+export interface Order {
+  id: string;
+  date: string;
+  total: number;
+  size: string;
+  items: {
+    basePrice: number;
+    description: string;
+    extras: string[];
+    finalPrice: number;
+    name: string;
+    quantity: number;
+    price: number;
+    size: string;
+  }[];
+}
 
 const Orders = () => {
-  // const orders = useAppSelector((state) => state.orders.history);
-  const orders = dummyOrders;
+  const [orders, setOrders] = useState<Order[]>([]);
 
-  const orderList = orders.length > 0 ? orders : dummyOrders;
+  useEffect(() => {
+    const storedOrders = localStorage.getItem("pizza-orders");
+    if (storedOrders) {
+      setOrders(JSON.parse(storedOrders));
+    }
+  }, []);
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+  };
 
   return (
     <>
@@ -36,24 +44,44 @@ const Orders = () => {
       <div className={styles.container}>
         <h1 className={styles.title}>🧾 Your Order History</h1>
 
-        {orderList.length === 0 ? (
+        {orders.length === 0 ? (
           <p className={styles.empty}>No orders found. Go order some pizzas!</p>
         ) : (
-          orderList.map((order) => (
+          orders.map((order) => (
             <div key={order.id} className={styles.orderCard}>
               <div className={styles.orderHeader}>
                 <span>Order ID: {order.id}</span>
-                <span>Date: {order.date}</span>
-                <span>Total: ₹{order.total.toFixed(2)}</span>
+                <span>Date: {formatDate(order.date)}</span>
+                <span>Total: ₹ {order.total.toFixed(2)}</span>
               </div>
+
               <div className={styles.items}>
-                {order.items.map((item, index) => (
-                  <div key={index} className={styles.item}>
-                    <span>{item.name}</span>
-                    <span>Qty: {item.quantity}</span>
-                    <span>₹{(item.price * item.quantity).toFixed(2)}</span>
-                  </div>
-                ))}
+                <div className={styles.itemHeader}>
+                  <span>Name</span>
+                  <span>Qty</span>
+                  <span>Price</span>
+                </div>
+
+                {order.items.map((item, index) => {
+                  const extrasDisplay =
+                    item.extras && item.extras.length > 0
+                      ? item.extras.join(", ")
+                      : "None";
+                  return (
+                    <div key={index} className={styles.item}>
+                      <div className={styles.itemDetails}>
+                        <div className={styles.itemName}>{item.name}</div>
+                        <div className={styles.itemMeta}>
+                          Size: {item.size}, Extras: {extrasDisplay}
+                        </div>
+                      </div>
+                      <div className={styles.itemQty}>x{item.quantity}</div>
+                      <div className={styles.itemPrice}>
+                        ₹{item.finalPrice.toFixed(2)}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ))
