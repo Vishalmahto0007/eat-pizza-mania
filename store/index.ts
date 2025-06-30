@@ -9,9 +9,9 @@ export const store = configureStore({
   },
 });
 
-store.subscribe(() => {
-  console.log("Redux State Updated:", store.getState());
-});
+// store.subscribe(() => {
+//   console.log("Redux State Updated:", store.getState());
+// });
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
