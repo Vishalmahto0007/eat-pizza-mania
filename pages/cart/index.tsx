@@ -16,64 +16,6 @@ const Cart = () => {
   const cartItems = useAppSelector((state) => state.cart.items);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
-  //   {
-  //     id: "1",
-  //     name: "Margherita",
-  //     size: "Medium",
-  //     extras: ["Cheese", "Olives"],
-  //     quantity: 2,
-  //     price: 299,
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Pepperoni",
-  //     size: "Large",
-  //     extras: [],
-  //     quantity: 1,
-  //     price: 399,
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Pepperoni",
-  //     size: "Large",
-  //     extras: [],
-  //     quantity: 1,
-  //     price: 399,
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Pepperoni",
-  //     size: "Large",
-  //     extras: [],
-  //     quantity: 1,
-  //     price: 399,
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Pepperoni",
-  //     size: "Large",
-  //     extras: [],
-  //     quantity: 1,
-  //     price: 399,
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Pepperoni",
-  //     size: "Large",
-  //     extras: [],
-  //     quantity: 1,
-  //     price: 399,
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Pepperoni",
-  //     size: "Large",
-  //     extras: [],
-  //     quantity: 1,
-  //     price: 399,
-  //   },
-  // ];
-
   const handleQuantityChange = (id: string, quantity: number) => {
     if (quantity >= 1) {
       dispatch(updateQuantity({ id, quantity }));
