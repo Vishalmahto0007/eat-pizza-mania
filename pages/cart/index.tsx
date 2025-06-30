@@ -74,12 +74,6 @@ const Cart = () => {
   //   },
   // ];
 
-  const getTotal = () =>
-    cartItems.reduce(
-      (total, item) => total + item.basePrice * item.quantity,
-      0
-    );
-
   const handleQuantityChange = (id: string, quantity: number) => {
     if (quantity >= 1) {
       dispatch(updateQuantity({ id, quantity }));

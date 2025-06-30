@@ -1,7 +1,4 @@
-import Link from "next/link";
 import "./index.css";
-import Clients from "../../components/ClientBanner/ClientBanner";
-import Pizza from "../../components/PizzaCard/PizzaCard";
 
 const Shop = () => {
   return (

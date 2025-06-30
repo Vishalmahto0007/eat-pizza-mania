@@ -1,4 +1,3 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import Banner from "../components/Banner/Banner";
 import Info from "@/components/Info/Info";
 import ClientBanner from "../components/ClientBanner/ClientBanner";

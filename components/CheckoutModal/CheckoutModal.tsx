@@ -175,6 +175,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ onClose }) => {
     try {
       return JSON.parse(localStorage.getItem("pizza-orders") || "[]");
     } catch (e) {
+      console.log(e);
       return [];
     }
   }
