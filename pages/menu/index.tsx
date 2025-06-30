@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import "./index.css";
+import styles from "./Menu.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Pizza from "@/components/PizzaCard/PizzaCard";
 import Footer from "@/components/Footer/Footer";
@@ -26,18 +26,18 @@ const Menu = () => {
   return (
     <>
       <Navbar />
-      <div className="about">
+      <div className={styles.about}>
         <div className="container">
-          <div className="row">
-            <div className="col-6">
-              <div className="about__img">
+          <div className={styles.row}>
+            <div className={styles["col-6"]}>
+              <div className={styles.about__img}>
                 <img src="/images/pizza.jpg" alt="Pizza" />
               </div>
             </div>
-            <div className="col-6 p-25">
-              <h3 className="title">The Pizza Menu</h3>
-              <h1 className="pizza-name">{pizza}</h1>
-              <p className="desc">
+            <div className={`${styles["col-6"]} ${styles["p-25"]}`}>
+              <h3 className={styles.title}>The Pizza Menu</h3>
+              <h1 className={styles["pizza-name"]}>{pizza}</h1>
+              <p className={styles.desc}>
                 This is the {pizza}, take it and make it your day specail,
                 Specially for your tongue. Have some and make your day special.
               </p>

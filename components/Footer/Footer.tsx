@@ -1,23 +1,19 @@
 import { FaFacebookF } from "react-icons/fa";
 import { IoLogoGoogle } from "react-icons/io";
 import { ImInstagram } from "react-icons/im";
-import "./Footer.css";
+import styles from "./Footer.module.css";
 
 const Contact = () => {
   return (
-    <div className="footer">
-      <div className="footer-container">
-        <div className="footer-content">
-          <div className="footer-text"></div>
+    <div className={styles.footer}>
+      <div className={styles.footerContainer}>
+        <div className={styles.footerContent}>
+          <div className={styles.footerText}></div>
           <h2>About us</h2>
-          <ul className="p ">
+          <ul className={styles.p}>
             <li>
-              <p className="p">
-                Pizza Delivery, Near by you. Just Order in Pizza Mania. We
-                provide delicious, <br /> Pizzas as per your choice that can be
-                make your great day.
-                <br /> Our team give you all satisfation in the taste. We are
-                not compromise in the taste.
+              <p className={styles.p}>
+                Pizza Delivery, Near by you. Just Order in Pizza Mania...
               </p>
             </li>
             <li>
@@ -26,7 +22,7 @@ const Contact = () => {
           </ul>
         </div>
 
-        <div className="footer-text ">
+        <div className={styles.footerText}>
           <h2>Services</h2>
           <ul>
             <li>Need help? Contact us.</li>
@@ -35,36 +31,37 @@ const Contact = () => {
             <li>Table booking.</li>
           </ul>
         </div>
-        <div className="footer-text">
+
+        <div className={styles.footerText}>
           <h2>Contact us</h2>
           <ul>
-            <li> (+91) 7011455389</li>
+            <li>(+91) 7011455389</li>
             <li>pizzamania@book.com</li>
             <li>
               <h5>Owner: VISHAL MAHTO</h5>
             </li>
 
-            <span className="span">
+            <span className={styles.span}>
               <a
-                className="link-a"
+                className={styles.linkA}
                 href="https://www.facebook.com/vishal.mahto.10"
                 target="blank"
               >
-                <FaFacebookF />{" "}
+                <FaFacebookF />
               </a>
             </span>
-            <span className="span">
+            <span className={styles.span}>
               <a
-                className="link-a"
+                className={styles.linkA}
                 href="https://Vishalmahto-portfolio.netlify.app"
                 target="blank"
               >
                 <IoLogoGoogle />
               </a>
             </span>
-            <span className="span">
+            <span className={styles.span}>
               <a
-                className="link-a"
+                className={styles.linkA}
                 href="https://www.instagram.com/vishalmahto0007"
                 target="blank"
               >
@@ -75,8 +72,8 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="footer-last">
-        <hr className="line" />
+      <div className={styles.footerLast}>
+        <hr className={styles.line} />
         <h3>@2025 Copyright by Vishal Mahto. All Rights Reserved.</h3>
       </div>
     </div>
