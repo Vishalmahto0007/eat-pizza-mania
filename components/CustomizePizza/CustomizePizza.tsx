@@ -62,8 +62,10 @@ const CustomizePizza = () => {
   };
 
   const handleAddToCart = () => {
-    const item = pizzaList.find((i) => i.id === Number(id));
-    if (item) {
+    const originalItem = pizzaList.find((i) => i.id === Number(id));
+    if (originalItem) {
+      const item = JSON.parse(JSON.stringify(originalItem));
+
       const sizeLabel = sizes[selectedSizeIndex].label;
       const sizePrice = sizes[selectedSizeIndex].price;
 

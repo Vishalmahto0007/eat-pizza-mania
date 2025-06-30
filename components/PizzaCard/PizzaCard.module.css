@@ -1,3 +1,5 @@
+/* ...existing code... */
+
 .pizza {
   width: 100%;
   padding: 80px 0;
@@ -5,15 +7,25 @@
 .price__img {
   width: 100%;
 }
-
 .price__img img {
   width: 250px;
+  max-width: 100%;
+  height: auto;
 }
 .price {
   padding: 20px;
   text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
-
+.price:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
 .price__heading {
   margin-top: 20px;
   font-size: 25px;
@@ -24,14 +36,12 @@
   font-size: 18px;
   font-weight: 300;
 }
-
 .price_rs {
   font-size: 30px;
   margin-top: 15px;
 }
-
 .col-4 {
-  width: 33.33333333333333%;
+  width: 33.3333%;
 }
 .row {
   width: 100%;
@@ -39,12 +49,7 @@
   flex-wrap: wrap;
 }
 
-.price:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
+/* Tooltip styles */
 .price::after {
   content: "Click for Customised Your Pizza";
   position: absolute;
@@ -62,8 +67,6 @@
   transition: opacity 0.3s ease;
   z-index: 100;
 }
-
-/* Show tooltip on hover */
 .price:hover::after {
   opacity: 1;
 }
@@ -86,98 +89,108 @@
   font-size: 16px;
   z-index: 10;
 }
-
-/* Button hover */
 .add-to-cart-btn:hover {
   background: rgb(255, 69, 79);
 }
-
-/* Show button on card hover */
-.price:hover {
-  display: block;
-}
-
-/* ------------------------------------- */
-
-/* Outer card style */
-.price {
-  position: relative;
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
-  transition: all 0.4s ease;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-}
-
-/* Lift & shadow */
-.price:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* Tooltip: shown by default on hover */
-.price:hover::after {
-  content: "Click for Customized Your Pizza";
-  position: absolute;
-  top: -35px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #000;
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  white-space: nowrap;
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 100;
-}
-
-/* When hovering over price (the inner content), hide tooltip */
-.price:hover .price__img,
-.price:hover .price__heading,
-.price:hover .price__text,
-.price:hover .price_rs,
-.price:hover .add-to-cart-btn {
-  z-index: 1;
-}
-
-/* Tooltip hide when hovering over .price directly (not just .price:hover) */
-.price:hover:hover::after {
-  opacity: 1;
-}
-
-/* But when button is shown, hide tooltip */
 .price:hover .add-to-cart-btn {
   display: block;
 }
 
-.price:hover::after {
-  opacity: 1;
+/* Responsive styles */
+@media (max-width: 900px) {
+  .pizza {
+    padding: 40px 0;
+  }
+  .col-4 {
+    width: 50%;
+  }
+  .price__img img {
+    width: 180px;
+  }
+  .price__heading {
+    font-size: 20px;
+  }
+  .price__text {
+    font-size: 15px;
+  }
+  .price_rs {
+    font-size: 22px;
+  }
+  .price {
+    padding: 15px;
+  }
+  .price::after {
+    content: "Click for Customised Your Pizza";
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+  }
 }
 
-/* Add-to-cart button hidden by default */
-/* .add-to-cart-btn {
-  display: none;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background: #111;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s ease;
-  z-index: 10;
-} */
-
-.add-to-cart-btn:hover {
-  background: rgb(255, 69, 79);
+@media (max-width: 600px) {
+  .pizza {
+    padding: 20px 0;
+  }
+  .col-4 {
+    width: 100%;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .price__img img {
+    width: 120px;
+  }
+  .price__heading {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .price__text {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .price_rs {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  .price {
+    padding: 10px;
+  }
+  .add-to-cart-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    bottom: 10px;
+  }
+  .price::after {
+    font-size: 11px;
+    top: -28px;
+    padding: 4px 8px;
+  }
+  .price::after {
+    content: "Click for Customised Your Pizza";
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+  }
 }

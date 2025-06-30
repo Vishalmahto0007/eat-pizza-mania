@@ -1,11 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+
 import "./index.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Pizza from "@/components/PizzaCard/PizzaCard";
-import Clients from "@/components/ClientBanner/ClientBanner";
 import Footer from "@/components/Footer/Footer";
 import Shop from "../shop";
 

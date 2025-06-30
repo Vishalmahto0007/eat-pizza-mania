@@ -2,10 +2,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { FaAlignRight, FaShoppingCart } from "react-icons/fa";
 import { useRouter } from "next/router";
-// import { useSelector } from "react-redux";
 import { useAppSelector } from "@/store/hook";
 import styles from "./Navbar.module.css";
-import { selectTotalQuantity } from "@/features/cart/cartSlice";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);

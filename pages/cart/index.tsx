@@ -9,12 +9,13 @@ import {
 } from "@/features/cart/cartSlice";
 import styles from "./Cart.module.css";
 import CheckoutModal from "@/components/CheckoutModal/CheckoutModal";
+import Footer from "@/components/Footer/Footer";
 
 const Cart = () => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.items);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-  // const cartItems = [
+
   //   {
   //     id: "1",
   //     name: "Margherita",
@@ -210,6 +211,8 @@ const Cart = () => {
           />
         )}
       </div>
+
+      <Footer />
     </>
   );
 };

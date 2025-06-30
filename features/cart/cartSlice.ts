@@ -14,13 +14,17 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
+      // Deep clone to avoid mutation of read-only/frozen payload
+      const payloadClone = JSON.parse(JSON.stringify(action.payload));
+
       const exists = state.items.find(
-        (item) => item.uniqueGeneratedID === action.payload.uniqueGeneratedID
+        (item) => item.uniqueGeneratedID === payloadClone.uniqueGeneratedID
       );
+
       if (exists) {
         exists.quantity += 1;
       } else {
-        state.items.push({ ...action.payload, quantity: 1 });
+        state.items.push({ ...payloadClone, quantity: 1 });
       }
     },
     removeFromCart: (state, action: PayloadAction<string>) => {

@@ -1,6 +1,6 @@
 .clients {
   width: 100%;
-  padding: 100px 0;
+  padding: 60px 0;
   background: url("/images/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -12,16 +12,18 @@
   text-align: center;
 }
 .client h1 {
-  font-style: 45px;
+  font-size: 2.5rem;
 }
 .client p {
-  font-style: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   margin-top: 10px;
 }
 
 .col-3 {
   width: 25%;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 .row {
@@ -31,7 +33,32 @@
 }
 
 .container {
-  width: 1200px;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .col-3 {
+    width: 50%;
+  }
+  .container {
+    width: 95%;
+  }
+  .clients {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .col-3 {
+    width: 100%;
+  }
+  .client h1 {
+    font-size: 2rem;
+  }
+  .clients {
+    padding: 20px 0;
+  }
 }

@@ -4,5 +4,5 @@ export function generatePizzaId(
   size: string,
   extras: string[]
 ): string {
-  return `${id}_${name}_${size}_${extras.sort().join("_")}`;
+  return `${id}_${name}_${size}_${extras?.sort().join("_")}`;
 }

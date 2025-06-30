@@ -1,5 +1,3 @@
-"use client";
-
 import Slider from "react-slick";
 import Image from "next/image";
 import { useRef } from "react";
@@ -8,13 +6,6 @@ import slides from "@/public/data/banner.json";
 
 const Banner = () => {
   const sliderRef = useRef<Slider | null>(null);
-
-  const order = () => {
-    // alert(
-    //   "Book your PIZZA, call at +917011455389, Your Loving :- Vishal Mahto"
-    // );
-    console.log("Order Now.");
-  };
 
   const settings = {
     dots: true,
@@ -30,7 +21,6 @@ const Banner = () => {
     <div className={styles.banner}>
       <div className={styles.banner__content}>
         <div className={styles.bannerSlider}>
-          {/* Custom Left Arrow */}
           <div
             className={styles.arrowLeft}
             onClick={() => sliderRef.current?.slickPrev()}
@@ -43,7 +33,6 @@ const Banner = () => {
             />
           </div>
 
-          {/* Custom Right Arrow */}
           <div
             className={styles.arrowRight}
             onClick={() => sliderRef.current?.slickNext()}

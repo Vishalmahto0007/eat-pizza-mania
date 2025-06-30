@@ -1,7 +1,5 @@
-import Link from "next/link";
 import styles from "./Info.module.css";
 import { usePathname } from "next/navigation";
-import path from "path";
 
 const Info = () => {
   const pathName = usePathname();

@@ -29,7 +29,6 @@
 
 .arrowLeft:hover {
   filter: invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.8);
-
   background-color: transparent;
 }
 
@@ -60,17 +59,21 @@
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
-  /* background-color: rgba(0, 0, 0, 0.5); */
   padding: 20px;
   border-radius: 12px;
   color: white;
   max-width: 500px;
+  text-align: left;
 }
 
 .textOverlay h3 {
   font-size: 50px;
 }
-
+.textOverlay h3,
+.textOverlay h1,
+.textOverlay p {
+  text-align: left;
+}
 .textOverlay h1 {
   font-size: 80px;
   line-height: 80px;
@@ -92,4 +95,82 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .slide,
+  .imageWrapper {
+    height: 50vh;
+  }
+  .textOverlay {
+    left: 60px;
+    max-width: 350px;
+    padding: 15px;
+  }
+  .textOverlay h1 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+  .textOverlay h3 {
+    font-size: 24px;
+  }
+  .textOverlay p {
+    font-size: 16px;
+  }
+  .col-3 {
+    width: 50%;
+  }
+  .container {
+    width: 95%;
+  }
+  .clients {
+    padding: 40px 0;
+  }
+  .arrowLeft {
+    left: 10px;
+  }
+  .arrowRight {
+    right: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slide,
+  .imageWrapper {
+    height: 32vh;
+  }
+  .textOverlay {
+    left: 48px;
+    right: 48px;
+    max-width: calc(100vw - 96px);
+    padding: 10px;
+    word-break: break-word;
+    white-space: normal;
+  }
+  .textOverlay h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .textOverlay h3 {
+    font-size: 18px;
+  }
+  .textOverlay p {
+    font-size: 14px;
+  }
+  .textOverlay h1,
+  .textOverlay h3,
+  .textOverlay p {
+    word-break: break-word;
+    white-space: normal;
+  }
+  .arrowLeft,
+  .arrowRight {
+    padding: 4px;
+  }
+  .arrowLeft {
+    left: 10px;
+  }
+  .arrowRight {
+    right: 10px;
+  }
 }

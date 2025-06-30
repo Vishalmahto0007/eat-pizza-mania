@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Navbar from "@/components/Navbar/Navbar";
 import Clients from "@/components/ClientBanner/ClientBanner";
 import Footer from "@/components/Footer/Footer";

@@ -20,7 +20,7 @@ const Pizza = () => {
     e: React.MouseEvent<HTMLButtonElement>,
     id: number
   ) => {
-    e.stopPropagation(); // Prevent redirect
+    e.stopPropagation();
     const item = pizzaList.find((p) => p.id === id);
     console.log("item", item);
     console.log("Add to Cart");
@@ -43,7 +43,6 @@ const Pizza = () => {
 
   return (
     <div className={styles.pizza}>
-      {/* <div className="container"> */}
       <div className={styles.row}>
         {pizzaList.map((data) => (
           <div
@@ -73,7 +72,6 @@ const Pizza = () => {
           </div>
         ))}
       </div>
-      {/* </div> */}
     </div>
   );
 };

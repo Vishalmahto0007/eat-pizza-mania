@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .modal {
@@ -137,4 +137,40 @@
 .confirmation p {
   margin: 10px 0;
   font-size: 15px;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .modal {
+    padding: 18px 8px;
+    max-width: 98vw;
+    width: 98vw;
+  }
+  .title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .field input,
+  .field textarea,
+  .field select {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .actions button {
+    font-size: 14px;
+    padding: 9px 0;
+  }
+  .closeButton {
+    top: 8px;
+    right: 8px;
+    font-size: 20px;
+  }
+  .confirmation p {
+    font-size: 14px;
+  }
 }

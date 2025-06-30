@@ -4,11 +4,7 @@ import { useState } from "react";
 import styles from "./CheckoutModal.module.css";
 import emailjs from "@emailjs/browser";
 import { useAppDispatch, useAppSelector } from "@/store/hook";
-import {
-  removeFromCart,
-  updateQuantity,
-  clearCart,
-} from "@/features/cart/cartSlice";
+import { clearCart } from "@/features/cart/cartSlice";
 import { placeOrder } from "@/features/orders/orderSlice";
 
 interface CheckoutModalProps {
@@ -99,7 +95,6 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ onClose }) => {
 
     setLoading(true);
 
-    // const templateParams = {
     //   name: "Vishal Mahto",
     //   email: formData.email,
     //   order_id: 123,
@@ -115,7 +110,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ onClose }) => {
     // };
     const uniqueOrderId = String(Math.floor(Math.random() * 90000 + 10000));
     const newOrderId = `OID${uniqueOrderId}PM`;
-    setOrderId(newOrderId); // Optional, only if needed elsewhere
+    setOrderId(newOrderId);
 
     const subtotal = cartItems.reduce(
       (sum, item) => sum + item.finalPrice * item.quantity,
@@ -166,7 +161,6 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ onClose }) => {
         placeOrder({ id: newOrderId, items: cartItems, total: subtotal })
       );
       setSubmitted(true);
-      // onConfirm(formData);
       dispatch(clearCart());
     } catch (err) {
       console.error("Failed to send email:", err);
