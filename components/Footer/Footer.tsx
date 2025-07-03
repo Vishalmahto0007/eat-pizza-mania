@@ -8,18 +8,15 @@ const Contact = () => {
     <div className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.footerContent}>
-          <div className={styles.footerText}></div>
-          <h2>About us</h2>
-          <ul className={styles.p}>
-            <li>
-              <p className={styles.p}>
-                Pizza Delivery, Near by you. Just Order in Pizza Mania...
-              </p>
-            </li>
-            <li>
-              <h2>Monday to Sunday - 9:00 am to 10:00 pm.</h2>
-            </li>
-          </ul>
+          <div className={styles.footerText}>
+            <h2>About us</h2>
+            <ul>
+              <li>Pizza Delivery, Near by you. Just Order in Pizza Mania.</li>
+              <li>
+                <h2>Monday to Sunday - 9:00 am to 10:00 pm.</h2>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className={styles.footerText}>
